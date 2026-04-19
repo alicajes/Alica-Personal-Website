@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🌸 洪美真's Personal Website 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet"/>
+<style>
+
+/* =============================================
+   ALICA 洪美真 — All-in-one website
+   Y2K Neocities Kawaii Pink
+   ============================================= */
+
+:root {
+  --pk1: #ff80ab;
+  --pk2: #f48fb1;
+  --pk3: #fce4ec;
+  --pk4: #f06292;
+  --pk5: #c2185b;
+  --pk6: #ff4081;
+  --pk7: #ffd6e8;
+  --pk8: #fff0f5;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--pk8);
+  background-image: radial-gradient(circle, var(--pk2) 3px, transparent 3px);
+  background-size: 18px 18px;
+  color: var(--pk5);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--pk7); }
+::-webkit-scrollbar-thumb { background: var(--pk1); border-radius: 10px; border: 2px solid var(--pk7); }
+
+/* ===== BOW BORDER ===== */
+.bow-border {
+  background: linear-gradient(90deg, var(--pk4), var(--pk1), var(--pk4));
+  padding: 5px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.3rem;
+  border-top: 3px solid var(--pk5);
+  border-bottom: 3px solid var(--pk5);
+  position: relative;
+  overflow: hidden;
+}
+.bow-border::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  animation: shimmer 3s infinite;
+}
+@keyframes shimmer { to { left: 160%; } }
+.bow-border.bottom-border { border-top: 3px solid var(--pk5); border-bottom: none; }
+
+/* ===== MARQUEE ===== */
+.marquee-bar {
+  background: linear-gradient(90deg, var(--pk5), var(--pk4), var(--pk5));
+  color: var(--white);
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.88rem;
+  padding: 5px 0;
+  letter-spacing: 0.06em;
+  border-bottom: 2px solid var(--pk5);
+}
+.bottom-marquee { background: linear-gradient(90deg, var(--pk4), var(--pk5), var(--pk4)); }
+
+/* ===== HEADER ===== */
+.site-header {
+  background: linear-gradient(160deg, var(--pk7) 0%, var(--white) 40%, var(--pk3) 100%);
+  border-bottom: 4px dashed var(--pk1);
+  padding: 18px 15px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.site-header::before {
+  content: '✦  ✦  ✦  ✦  ✦';
+  position: absolute;
+  bottom: 5px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.55rem; color: var(--pk4); letter-spacing: 10px; pointer-events: none;
+}
+.header-text { text-align: center; flex: 1; }
+.site-title {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(1.3rem, 4vw, 2.4rem);
+  color: var(--pk5);
+  text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, 4px 4px 0 var(--pk1);
+  line-height: 1.2;
+}
+.site-subtitle { font-family: 'Fredoka One', cursive; color: var(--pk4); font-size: 0.9rem; margin-top: 4px; }
+.header-deco { font-size: 1.5rem; letter-spacing: 2px; flex-shrink: 0; animation: wobble 2s ease-in-out infinite; }
+@keyframes wobble { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.sparkle { display: inline-block; animation: floaty 2s ease-in-out infinite; }
+
+/* ===== NAVIGATION ===== */
+.main-nav {
+  background: linear-gradient(90deg, var(--pk3), var(--pk7), var(--pk3));
+  border-top: 3px solid var(--pk2);
+  border-bottom: 3px dotted var(--pk2);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.nav-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: linear-gradient(180deg, #ffb6d0 0%, var(--pk1) 50%, var(--pk4) 100%);
+  color: var(--white); font-family: 'Fredoka One', cursive; font-size: 0.88rem;
+  padding: 7px 20px; border-radius: 40px; border: 3px solid var(--pk5);
+  box-shadow: 0 4px 0 var(--pk5), inset 0 1px 0 rgba(255,255,255,0.4);
+  cursor: pointer; transition: all 0.12s ease;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.15); user-select: none;
+}
+.nav-btn:hover { background: linear-gradient(180deg, var(--pk4), var(--pk5)); transform: translateY(3px); box-shadow: 0 1px 0 var(--pk5); }
+.nav-btn.active { background: linear-gradient(180deg, var(--pk5), #8b0a3a); transform: translateY(3px); box-shadow: 0 1px 0 #8b0a3a; }
+
+/* ===== PAGE TABS ===== */
+.page-section { display: none; }
+.page-section.active { display: block; }
+
+/* ===== LAYOUT ===== */
+.page-wrapper {
+  display: grid;
+  grid-template-columns: 210px 1fr 195px;
+  gap: 14px;
+  padding: 16px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.page-wrapper.single-col { display: block; max-width: 1000px; padding: 16px; }
+.sidebar { display: flex; flex-direction: column; gap: 12px; }
+.center-content { display: flex; flex-direction: column; gap: 14px; }
+
+/* ===== BOXES ===== */
+.sidebar-box, .content-box {
+  background-color: var(--white);
+  background-image: radial-gradient(circle, var(--pk3) 2px, transparent 2px);
+  background-size: 14px 14px;
+  border: 3px dotted var(--pk1);
+  border-radius: 18px;
+  padding: 14px;
+  position: relative;
+  box-shadow: 4px 4px 0 var(--pk2), 8px 8px 0 rgba(255,180,200,0.25);
+  margin-top: 12px;
+}
+.sidebar-box::before, .content-box::before {
+  content: '🎀';
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+  font-size: 1.2rem; z-index: 2;
+}
+
+/* ===== BOX TITLE ===== */
+.box-title {
+  font-family: 'Fredoka One', cursive; font-size: 0.88rem; color: var(--white);
+  background: linear-gradient(180deg, #ffb6d0 0%, var(--pk1) 40%, var(--pk4) 100%);
+  border: 2px solid var(--pk5); border-radius: 30px; padding: 4px 14px;
+  text-align: center; margin-bottom: 12px; display: block;
+  box-shadow: 0 3px 0 var(--pk5), inset 0 1px 0 rgba(255,255,255,0.4);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1); letter-spacing: 0.04em;
+}
+
+/* ===== PROFILE PHOTO ===== */
+.profile-photo-wrap { display: flex; justify-content: center; margin: 6px 0 10px; }
+
+/* This is the "Your Photo" box — replace the src in the img tag below */
+.profile-img-frame {
+  width: 130px; height: 155px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 4px solid var(--pk2);
+  box-shadow: 0 0 0 5px #fff, 0 0 0 7px var(--pk2), 4px 6px 12px rgba(200,80,120,0.2);
+  position: relative;
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  display: flex; align-items: center; justify-content: center;
+}
+.profile-img-frame img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.profile-img-frame .photo-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(194, 24, 91, 0.75);
+  color: #fff; font-family: 'Fredoka One', cursive;
+  font-size: 0.6rem; text-align: center; padding: 3px 0;
+}
+/* bow decoration on photo corner */
+.profile-img-frame::after {
+  content: '🎀'; position: absolute; top: -13px; right: -11px; font-size: 1rem;
+}
+
+.about-name { font-family: 'Fredoka One', cursive; font-size: 0.92rem; color: var(--pk5); text-align: center; line-height: 1.3; margin-bottom: 6px; }
+.about-detail { font-size: 0.71rem; color: var(--pk4); margin-bottom: 5px; line-height: 1.5; }
+
+/* ===== SOCIAL BUTTONS ===== */
+.social-btn {
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  background: linear-gradient(180deg, #ffcce0 0%, var(--pk1) 60%, var(--pk4) 100%);
+  border: 2px solid var(--pk5); border-radius: 30px; padding: 5px 12px; margin-bottom: 6px;
+  font-size: 0.75rem; font-weight: 700; font-family: 'Fredoka One', cursive;
+  color: var(--white); text-decoration: none; text-align: center;
+  transition: all 0.12s; box-shadow: 0 3px 0 var(--pk5), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.social-btn:hover { background: linear-gradient(180deg, var(--pk4), var(--pk5)); transform: translateY(2px); box-shadow: 0 1px 0 var(--pk5); }
+
+/* ===== MISC ITEMS ===== */
+.show-item { font-size: 0.73rem; color: var(--pk5); margin-bottom: 6px; padding: 4px 8px; background: var(--pk3); border: 1.5px dashed var(--pk2); border-radius: 8px; line-height: 1.5; }
+.show-item em { color: var(--pk4); font-size: 0.68rem; }
+.update-item { font-size: 0.72rem; color: var(--pk4); margin-bottom: 5px; border-left: 3px solid var(--pk1); padding: 2px 0 2px 6px; }
+.achieve-item { font-size: 0.7rem; color: var(--pk5); margin-bottom: 5px; line-height: 1.4; padding: 3px 7px; background: var(--pk3); border-radius: 7px; border-left: 3px solid var(--pk1); }
+.quick-link { display: flex; align-items: center; gap: 5px; font-size: 0.76rem; font-weight: 700; font-family: 'Fredoka One', cursive; color: var(--pk5); padding: 4px 0; border-bottom: 1px dashed var(--pk2); cursor: pointer; transition: color 0.1s; }
+.quick-link:hover { color: var(--pk6); }
+.life-quote { font-family: 'Fredoka One', cursive; font-size: 1rem; color: var(--pk5); text-align: center; line-height: 1.5; padding: 5px; }
+
+/* ===== VISITOR DOTS ===== */
+.visitor-count { display: flex; justify-content: center; gap: 4px; margin: 6px 0; flex-wrap: wrap; }
+.visitor-count span { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--pk1); border: 2px solid var(--pk5); box-shadow: 1px 1px 0 var(--pk4); }
+.visitor-count span:nth-child(even) { background: var(--white); }
+
+/* ===== CONTENT BOX TEXT ===== */
+.content-box p { font-size: 0.84rem; color: var(--pk5); line-height: 1.65; margin-bottom: 6px; }
+
+/* ===== MOTTO ===== */
+.motto {
+  font-family: 'Pacifico', cursive; font-size: 0.88rem; color: var(--pk5);
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  border: 2px dashed var(--pk1); border-radius: 18px;
+  padding: 10px 16px; margin: 10px 0; line-height: 1.6; text-align: center;
+}
+.motto::before { content: '✦ '; } .motto::after { content: ' ✦'; }
+
+/* ===== INTEREST CHIPS ===== */
+.interests-grid { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+.interest-chip {
+  background: linear-gradient(135deg, var(--pk1), var(--pk4));
+  color: var(--white); font-family: 'Fredoka One', cursive;
+  font-size: 0.76rem; padding: 5px 13px; border-radius: 20px;
+  border: 2px solid var(--pk5); box-shadow: 2px 2px 0 var(--pk5);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1); transition: transform 0.1s; cursor: default;
+}
+.interest-chip:hover { transform: translateY(-1px); }
+
+/* ===== BUTTONS ===== */
+.read-more-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: linear-gradient(180deg, #ffcce0 0%, var(--pk1) 50%, var(--pk4) 100%);
+  color: var(--white); font-family: 'Fredoka One', cursive; font-size: 0.82rem;
+  padding: 7px 20px; border-radius: 30px; text-decoration: none;
+  border: 2px solid var(--pk5); box-shadow: 0 4px 0 var(--pk5), inset 0 1px 0 rgba(255,255,255,0.35);
+  margin-top: 8px; transition: all 0.12s; cursor: pointer;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
+}
+.read-more-btn:hover { transform: translateY(3px); box-shadow: 0 1px 0 var(--pk5); }
+
+/* ===== YOUTUBE ===== */
+.yt-wrap { border: 4px solid var(--pk2); border-radius: 14px; overflow: hidden; box-shadow: 4px 4px 0 var(--pk1); }
+
+/* ===== INLINE LINK ===== */
+.inline-link { color: var(--pk5); font-weight: 800; text-decoration: none; border-bottom: 2px dashed var(--pk1); }
+.inline-link:hover { color: var(--pk6); }
+
+/* ===== PAGE TITLE BOX ===== */
+.page-title-box {
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  border: 3px dotted var(--pk1); border-radius: 20px;
+  padding: 20px; text-align: center; margin-bottom: 20px;
+  box-shadow: 4px 4px 0 var(--pk2); position: relative;
+}
+.page-title-box::before { content: '🎀'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); font-size: 1.3rem; }
+.page-title-box h2 { font-family: 'Pacifico', cursive; font-size: 1.6rem; color: var(--pk5); text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff, 3px 3px 0 var(--pk1); margin-bottom: 6px; }
+.page-title-box p { font-size: 0.88rem; color: var(--pk4); }
+
+/* ===== HOBBIES ===== */
+.hobbies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px; }
+.hobby-card {
+  background: var(--white); background-image: radial-gradient(circle, var(--pk3) 2px, transparent 2px);
+  background-size: 14px 14px; border: 3px dotted var(--pk1); border-radius: 18px;
+  padding: 18px; box-shadow: 4px 4px 0 var(--pk2); transition: transform 0.15s, box-shadow 0.15s; position: relative;
+}
+.hobby-card::before { content: '🌸'; position: absolute; top: -12px; right: 14px; font-size: 1rem; }
+.hobby-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--pk1); }
+.hobby-icon { font-size: 2.2rem; margin-bottom: 8px; text-align: center; }
+.hobby-card h3 { font-family: 'Fredoka One', cursive; color: var(--pk5); font-size: 1rem; margin-bottom: 8px; text-align: center; }
+.hobby-card p { font-size: 0.81rem; color: var(--pk4); line-height: 1.6; margin-bottom: 5px; }
+.hobby-detail { font-size: 0.74rem !important; color: var(--pk2) !important; font-style: italic; }
+.hobby-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.tag { background: var(--pk3); border: 1.5px solid var(--pk2); border-radius: 12px; padding: 2px 9px; font-size: 0.69rem; font-weight: 700; color: var(--pk5); }
+
+/* ===== GALLERY ===== */
+.gallery-section {
+  margin-bottom: 24px; background: var(--white);
+  background-image: radial-gradient(circle, var(--pk3) 2px, transparent 2px);
+  background-size: 14px 14px; border: 3px dotted var(--pk1); border-radius: 18px;
+  padding: 18px; box-shadow: 4px 4px 0 var(--pk2); position: relative;
+}
+.gallery-section::before { content: '🌸'; position: absolute; top: -12px; right: 14px; font-size: 1rem; }
+.gallery-section-title {
+  font-family: 'Fredoka One', cursive; font-size: 0.95rem; color: var(--white);
+  background: linear-gradient(180deg, #ffb6d0, var(--pk1) 50%, var(--pk4));
+  border: 2px solid var(--pk5); border-radius: 20px; padding: 4px 16px;
+  display: inline-block; margin-bottom: 14px; box-shadow: 0 3px 0 var(--pk5);
+}
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+.gallery-item { text-align: center; }
+
+/*
+  =====================================================
+  HOW TO ADD YOUR OWN PHOTOS TO THE GALLERY:
+
+  Each gallery item contains ONE of these two options:
+
+  OPTION A — You have a photo file (recommended):
+    <img src="alica1.jpg" alt="caption" class="gallery-photo"/>
+    Put the photo file in the SAME folder as this HTML file.
+    Then change "your-filename.jpg" to match your file name.
+    Supported formats: .jpg .jpeg .png .webp .gif
+
+  OPTION B — Keep the placeholder (before you have photos):
+    <div class="gallery-placeholder">📷<p>Add photo!</p></div>
+  =====================================================
+*/
+.gallery-photo {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 3px var(--pk2), 4px 4px 0 var(--pk1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: block;
+}
+.gallery-photo:hover { transform: scale(1.03) rotate(1deg); box-shadow: 0 0 0 3px var(--pk1), 6px 6px 0 var(--pk4); }
+
+.gallery-placeholder {
+  width: 100%; aspect-ratio: 3/4;
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  border: 3px dashed var(--pk1); border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 2rem; color: var(--pk4);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--pk2);
+}
+.gallery-placeholder p { font-size: 0.68rem; margin-top: 5px; color: var(--pk4); font-family: 'Nunito', sans-serif; }
+.gallery-placeholder:hover { background: var(--pk7); }
+
+.gallery-caption { font-size: 0.75rem; font-weight: 700; color: var(--pk4); margin-top: 7px; font-family: 'Fredoka One', cursive; }
+
+/* ===== EXPERIENCES ===== */
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.exp-card {
+  background: var(--white);
+  border: 3px dotted var(--pk1);
+  border-radius: 18px;
+  overflow: visible;
+  box-shadow: 4px 4px 0 var(--pk2);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex; flex-direction: column;
+  position: relative;
+  margin-top: 12px;
+}
+.exp-card::before { content: '🌸'; position: absolute; top: -14px; right: 14px; font-size: 1rem; z-index: 2; }
+.exp-card:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--pk1); }
+
+.exp-photo-wrap {
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  display: flex; align-items: center; justify-content: center;
+  height: 90px; font-size: 3.2rem;
+  border-radius: 15px 15px 0 0;
+}
+/*
+  =====================================================
+  HOW TO ADD YOUR OWN PHOTO TO AN EXPERIENCE CARD:
+
+  Replace the emoji inside .exp-photo-wrap with an img tag:
+    <img src="alica1.jpg" alt="caption" class="exp-card-photo"/>
+  =====================================================
+*/
+.exp-card-photo {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  display: block;
+}
+
+.exp-info { padding: 14px 14px 16px; flex: 1; }
+.exp-info h3 { font-family: 'Fredoka One', cursive; color: var(--pk5); font-size: 0.96rem; margin-bottom: 7px; line-height: 1.3; }
+.exp-info p  { font-size: 0.8rem; color: var(--pk4); line-height: 1.65; margin-bottom: 5px; }
+.exp-lorem   { font-size: 0.71rem !important; color: var(--pk2) !important; font-style: italic; }
+.exp-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--pk1), var(--pk4));
+  color: var(--white); font-size: 0.68rem; font-weight: 700;
+  font-family: 'Fredoka One', cursive; padding: 3px 12px; border-radius: 14px;
+  margin-bottom: 8px; border: 1.5px solid var(--pk5);
+  box-shadow: 1px 1px 0 var(--pk5);
+}
+.exp-badge.special { background: linear-gradient(135deg, var(--pk5), #8b0a3a); }
+.exp-card.highlight { border-color: var(--pk4); box-shadow: 4px 4px 0 var(--pk4); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  border-top: 4px dashed var(--pk1); padding: 16px; text-align: center;
+  font-family: 'Fredoka One', cursive; font-size: 0.84rem; color: var(--pk5); line-height: 1.9; margin-top: 4px;
+}
+
+/* ===== MUSIC NOTE ===== */
+.music-note { font-size: 0.62rem; color: var(--pk4); text-align: center; font-family: 'Fredoka One', cursive; margin-top: 4px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 860px) {
+  .page-wrapper { grid-template-columns: 1fr; }
+  .sidebar { flex-direction: row; flex-wrap: wrap; }
+  .sidebar-box { flex: 1 1 150px; }
+  .header-deco { display: none; }
+}
+@media (max-width: 500px) {
+  .hobbies-grid, .exp-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); }
+  .site-title { font-size: 1.2rem; }
+}
+
+/* =============================================
+   ✨ FRIENDS PHOTO MARQUEE
+   Infinite horizontal scroll, pause on hover
+   ============================================= */
+
+/* The outer wrapper clips the overflow so we only see the track */
+.friends-marquee-outer {
+  overflow: hidden;          /* hide everything outside the visible area */
+  position: relative;
+  width: 100%;
+  /* subtle pink gradient fade on edges to look polished */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+/* The scrolling track — contains TWO copies of the photos for seamless looping */
+.friends-marquee-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;              /* grow as wide as content needs */
+  animation: friendsScroll 28s linear infinite;
+  padding: 8px 0 12px;            /* breathing room top/bottom */
+}
+
+/* Pause the animation when hovering over the track */
+.friends-marquee-outer:hover .friends-marquee-track {
+  animation-play-state: paused;
+}
+
+/* The CSS keyframe: move the track one full "set" width to the left.
+   Because we have two identical sets, when the first set exits left the
+   second set is already in view — so it loops with zero visible jump. */
+@keyframes friendsScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }  /* exactly half = one full set */
+}
+
+/* Each individual photo card inside the track */
+.friends-photo-item {
+  flex-shrink: 0;               /* never shrink — keep consistent size */
+  width: 140px;
+  text-align: center;
+}
+
+/* The photo itself */
+.friends-photo {
+  width: 140px;
+  height: 175px;               /* 4:5 portrait ratio, good for friend pics */
+  object-fit: cover;
+  border-radius: 14px;
+  border: 4px solid var(--white);
+  box-shadow: 0 0 0 3px var(--pk2), 4px 4px 0 var(--pk1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: block;
+}
+.friends-photo:hover {
+  transform: scale(1.06) rotate(-1.5deg);
+  box-shadow: 0 0 0 3px var(--pk4), 6px 6px 0 var(--pk5);
+}
+
+/* Placeholder shown before real photos are added */
+.friends-photo-placeholder {
+  width: 140px;
+  height: 175px;
+  background: linear-gradient(135deg, var(--pk3), var(--pk7));
+  border: 3px dashed var(--pk1);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--pk4);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--pk2);
+}
+.friends-photo-placeholder p {
+  font-size: 0.62rem;
+  margin-top: 5px;
+  color: var(--pk4);
+  font-family: 'Nunito', sans-serif;
+}
+
+.friends-caption {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--pk4);
+  margin-top: 7px;
+  font-family: 'Fredoka One', cursive;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Responsive: on small screens widen photos slightly so they're tappable */
+@media (max-width: 500px) {
+  .friends-photo-item { width: 115px; }
+  .friends-photo, .friends-photo-placeholder { width: 115px; height: 145px; }
+}
+
+
+/* =============================================
+   ✨ FIXED BOTTOM MARQUEE  (replaces <marquee>)
+   Pure CSS — works in all modern browsers.
+   ============================================= */
+
+/* Wrapper for the CSS-powered marquee bar */
+.css-marquee-bar {
+  background: linear-gradient(90deg, var(--pk4), var(--pk5), var(--pk4));
+  color: var(--white);
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.88rem;
+  padding: 5px 0;
+  letter-spacing: 0.06em;
+  border-top: 2px solid var(--pk5);
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* The inner scrolling content — again two copies for seamless loop */
+.css-marquee-content {
+  display: inline-flex;
+  width: max-content;
+  animation: cssMarqueeScroll 22s linear infinite;
+}
+
+/* Scroll right-to-left */
+@keyframes cssMarqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* =============================================
+   ✨ SPARKLE CURSOR  (fun interactive feature)
+   Small, lightweight, non-distracting.
+   Sparkling hearts & stars follow the cursor.
+   ============================================= */
+
+/* Each sparkle is an absolutely-positioned element injected by JS */
+.cursor-sparkle {
+  position: fixed;
+  pointer-events: none;         /* never interfere with clicks */
+  z-index: 9999;
+  font-size: 1rem;
+  line-height: 1;
+  animation: sparkleFloat 0.8s ease-out forwards;
+  user-select: none;
+}
+
+@keyframes sparkleFloat {
+  0%   { opacity: 1;   transform: translate(-50%, -50%) scale(1)    translateY(0);    }
+  60%  { opacity: 0.8; transform: translate(-50%, -50%) scale(1.3)  translateY(-18px);}
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(0.5)  translateY(-36px);}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     🎵 AUTO-PLAY AUDIO
+     Place your music file (e.g. music.mp3) in the same folder
+     as this HTML file, then make sure the src below matches.
+     ============================================================ -->
+<audio id="bg-music" autoplay loop>
+  <source src="song.mp3" type="audio/mpeg"/>
+</audio>
+
+<!-- BOW TOP -->
+<div class="bow-border">
+  <span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span>
+  <span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span>
+</div>
+
+<!-- MARQUEE TOP -->
+<div class="marquee-bar">
+  <marquee scrollamount="4">💕 welcome to alica's site!! 🎀 spreading happiness through creativity 📸 content creator 💖 model 🎬 actress ✨ ambassador 🌸 follow me on instagram &amp; tiktok 💅 be yourself &amp; shine bright 🌟 💕</marquee>
+</div>
+
+<!-- HEADER -->
+<div class="site-header">
+  <div class="header-deco">🌸<span class="sparkle">💖</span>🎀</div>
+  <div class="header-text">
+    <h1 class="site-title">洪美真's Personal Website</h1>
+    <p class="site-subtitle"><span class="sparkle">✨</span> Content Creator · Model · Performer · Ambassador <span class="sparkle">💕</span></p>
+  </div>
+  <div class="header-deco">🎀<span class="sparkle">💖</span>🌸</div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="main-nav">
+  <button class="nav-btn active"  onclick="showPage('home',this)">🏠 Home</button>
+  <button class="nav-btn"         onclick="showPage('hobbies',this)">🎀 Hobbies</button>
+  <button class="nav-btn"         onclick="showPage('gallery',this)">📸 Gallery</button>
+  <button class="nav-btn"         onclick="showPage('experiences',this)">🌟 Experiences</button>
+</nav>
+
+
+<!-- ================================================================
+     🏠 PAGE: HOME
+     ================================================================ -->
+<div id="page-home" class="page-section active">
+<div class="page-wrapper">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+
+    <!-- ABOUT ME + YOUR PHOTO -->
+    <div class="sidebar-box">
+      <span class="box-title">🌸 about me 🌸</span>
+      <div class="profile-photo-wrap">
+        <!--
+          =====================================================
+          📸 YOUR PHOTO — HOW TO ADD IT:
+          1. Put your photo file in the same folder as this HTML file
+          2. Replace "your-photo.jpg" below with your actual filename
+          3. Supported: .jpg .jpeg .png .webp
+          Example: <img src="alica.jpg" alt="Alica photo"/>
+          =====================================================
+        -->
+        <div class="profile-img-frame">
+          <img src="alica.jpeg" alt="Alica Juliawati"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- This placeholder shows if the image file is missing -->
+          <div style="display:none; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100%; color:var(--pk4); font-size:2rem; text-align:center;">
+            📷<br/><span style="font-size:0.6rem; font-family:'Nunito',sans-serif; margin-top:4px;">Replace<br/>your-photo.jpg</span>
+          </div>
+          <div class="photo-label">🌸 Alica Juliawati 🌸</div>
+        </div>
+      </div>
+      <p class="about-name">Alica Juliawati<br/>洪美真</p>
+      <p class="about-detail">🎓 國際數位媒體科技<br/>Digital Media &amp; Technology</p>
+      <p class="about-detail">📅 First Year Student</p>
+      <p class="about-detail">🏫 慈濟大學介仁校區<br/>No. 67, Jieren St.,<br/>Hualien City, Taiwan</p>
+    </div>
+
+    <!-- SOCIALS -->
+    <div class="sidebar-box">
+      <span class="box-title">💌 my socials!</span>
+      <a href="https://www.instagram.com/alica.jes?igsh=dDl5b2EzMjR6a2Ux&utm_source=qr" target="_blank" class="social-btn">📷 Instagram</a>
+      <a href="https://www.tiktok.com/@yoi.alica?_r=1&_t=ZS-95WN0hNrAvf" target="_blank" class="social-btn">🎵 TikTok</a>
+      <a href="https://tinyurl.com/alicajes" target="_blank" class="social-btn">🌐 Portfolio</a>
+      <a href="mailto:portoalica@gmail.com" class="social-btn">💌 Email Me</a>
+    </div>
+
+    <!-- NAVIGATION LINKS -->
+    <div class="sidebar-box">
+      <span class="box-title">🧭 navigation</span>
+      <span class="quick-link" onclick="showPage('home',      document.querySelectorAll('.nav-btn')[0])">🏠 Home</span>
+      <span class="quick-link" onclick="showPage('hobbies',   document.querySelectorAll('.nav-btn')[1])">🎀 Hobbies</span>
+      <span class="quick-link" onclick="showPage('gallery',   document.querySelectorAll('.nav-btn')[2])">📸 Gallery</span>
+      <span class="quick-link" onclick="showPage('experiences',document.querySelectorAll('.nav-btn')[3])">🌟 Experiences</span>
+    </div>
+
+    <!-- WEBSITE COUNT -->
+    <div class="sidebar-box" style="padding:10px;">
+      <span class="box-title">🌐 website count</span>
+      <div class="visitor-count">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="music-note">thanks for visiting! 💖</p>
+    </div>
+
+  </aside>
+
+  <!-- CENTER -->
+  <main class="center-content">
+
+    <div class="content-box" style="background:linear-gradient(135deg,#fff,var(--pk3));">
+      <span class="box-title">💖 hello &amp; welcome! 💖</span>
+      <p>Hello &amp; welcome to my site! My name is <strong>Alica Juliawati 洪美真</strong> but you can call me <strong>Alica</strong>! 🌸</p>
+      <blockquote class="motto">Spreading happiness through creativity and positive energy"</blockquote>
+      <p>I’m a student who loves expressing myself through fashion, beauty, and digital content.
+
+I enjoy trying new things, from modeling, dancing, to creating videos that can make people smile. For me, creativity is not just a hobby, it’s a way to share positive energy with the world 💕</p>
+    </div>
+
+    <div class="content-box">
+      <span class="box-title">📸 interests &amp; hobbies 🎀</span>
+      <div class="interests-grid">
+        <span class="interest-chip">📱 Content Creating</span>
+        <span class="interest-chip">🎤 Public Speaking</span>
+        <span class="interest-chip">💃 Dancing</span>
+        <span class="interest-chip">🎭 Performing Arts</span>
+        <span class="interest-chip">👗 Modeling</span>
+        <span class="interest-chip">🎬 Acting</span>
+        <span class="interest-chip">🏆 Competitions</span>
+        <span class="interest-chip">👠 Fashion Shows</span>
+      </div>
+      <button class="read-more-btn" onclick="showPage('hobbies',document.querySelectorAll('.nav-btn')[1])">see more about my hobbies 🌸</button>
+    </div>
+
+    <div class="content-box">
+      <span class="box-title">🎬 youtube corner 🎬</span>
+      <p style="font-size:0.82rem; margin-bottom:8px;">🌸 ✨ Watch a little piece of my journey here! 🎬💖
+This is my new YouTube channel where I share my journey and daily life in Taiwan 🇹🇼💖
+Come watch my adventures and don’t forget to subscribe! 🎬🌸🌸🎀</p>
+      <div class="yt-wrap">
+        <!-- Replace the src URL with your own YouTube embed link -->
+        <iframe width="100%" height="220" src="https://youtube.com/shorts/xmcB8PyNQOI?si=TpbCylWcNHQUbQdv" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="content-box">
+      <span class="box-title">💌 contact me!</span>
+      <p>📧 Email: <a href="mailto:portoalica@gmail.com" class="inline-link">portoalica@gmail.com</a></p>
+      <p>📍 慈濟大學介仁校區, No. 67, Jieren St., Hualien City, Taiwan 🌸</p>
+      <p>📱 Instagram: <a href="https://www.instagram.com/alica.jes?igsh=dDl5b2EzMjR6a2Ux&utm_source=qr" target="_blank" class="inline-link">@alica.jes</a></p>
+      <p>🎵 TikTok: <a href="https://www.tiktok.com/@yoi.alica?_r=1&_t=ZS-95WN0hNrAvf" target="_blank" class="inline-link">@yoi.alica</a></p>
+    </div>
+
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-box">
+      <span class="box-title">📝 update log</span>
+      <p class="update-item">🌸 Site launched! Welcome~</p>
+      <p class="update-item">💖 Gallery page added!</p>
+      <p class="update-item">🎀 Started working on this site</p>
+    </div>
+
+    <div class="sidebar-box">
+      <span class="box-title">🎬 fave shows 🎬</span>
+      <p class="show-item">💕 當我飛奔向你<br/><em>When I Fly Towards You</em></p>
+      <p class="show-item">💖 偷偷藏不住<br/><em>Hidden Love</em></p>
+    </div>
+
+    <div class="sidebar-box">
+      <span class="box-title">💖 life is...</span>
+      <p class="life-quote">life is <strong>[music]</strong><br/>play it <em>-LOUDER-</em> 🎵</p>
+    </div>
+
+    <div class="sidebar-box">
+      <span class="box-title">🏆 achievements</span>
+      <p class="achieve-item">👑 Brand Ambassador – Tzu Chi</p>
+      <p class="achieve-item">🎖️ Stage 1 Rep – DKI Jakarta 2024</p>
+      <p class="achieve-item">📸 Photo Model – Super Roti</p>
+      <p class="achieve-item">👗 Runway – Justice &amp; more</p>
+      <button class="read-more-btn" onclick="showPage('experiences',document.querySelectorAll('.nav-btn')[3])">see all 🌸</button>
+    </div>
+
+    <div class="sidebar-box" style="padding:10px;">
+      <span class="box-title">🎵 music player</span>
+      <!-- Controls for the background music. Replace music.mp3 with your file. -->
+      <audio controls style="width:100%; margin-top:4px; border-radius:8px;">
+        <source src="music.mp3" type="audio/mpeg"/>
+      </audio>
+      <p class="music-note">♫ put music.mp3 next to this file 🎀</p>
+    </div>
+
+  </aside>
+
+</div>
+</div><!-- /page-home -->
+
+
+<!-- ================================================================
+     🎀 PAGE: HOBBIES
+     ================================================================ -->
+<div id="page-hobbies" class="page-section">
+<div class="page-wrapper single-col">
+
+  <div class="page-title-box">
+    <h2>🎀 My Hobbies &amp; Passions 💖</h2>
+    <p>Here are the things that make my heart happy and my life colorful! 🌸✨</p>
+  </div>
+
+  <div class="hobbies-grid">
+
+    <div class="hobby-card">
+      <div class="hobby-icon">📱</div>
+      <h3>Content Creating</h3>
+      <p>I love creating content on Instagram &amp; TikTok! 📸 From fashion lookbooks to lifestyle vlogs, I express my creativity and connect with amazing people online. Follow me at <strong>@alica.jes</strong> &amp; <strong>@yoi.alica</strong>! 💕</p>
+      <p class="hobby-detail">我喜歡創作有美感且有意義的內容，透過影像分享故事。我的目標不只是娛樂大家，也希望能帶給他人自信與表達自我的勇氣 💖</p>
+      <div class="hobby-tags"><span class="tag">Instagram</span><span class="tag">TikTok</span><span class="tag">Creative</span></div>
+    </div>
+
+    <div class="hobby-card">
+      <div class="hobby-icon">🎤</div>
+      <h3>Public Speaking</h3>
+      <p>Speaking in front of crowds excites me! 🌟 Whether it's competitions, events, or hosting, I love using my voice to inspire and connect with others. 💬</p>
+      <p class="hobby-detail">對我來說，說話不只是表達文字，更是傳遞能量與意義。我喜歡與觀眾互動，讓每一刻都變得難忘 ✨</p>
+      <div class="hobby-tags"><span class="tag">MC</span><span class="tag">Competitions</span><span class="tag">Events</span></div>
+    </div>
+
+    <div class="hobby-card">
+      <div class="hobby-icon">💃</div>
+      <h3>Dancing &amp; Performing Arts</h3>
+      <p>Dance is my language! 🎵 I love performing on stage and expressing emotions through movement and art. From contemporary to modern dance, I enjoy it all! ✨</p>
+      <p class="hobby-detail">舞蹈不只是動作，而是我說故事的方式。每一次表演都是展現熱情、情感與創意的機會 💫</p>
+      <div class="hobby-tags"><span class="tag">Dance</span><span class="tag">Performance</span><span class="tag">Stage</span></div>
+    </div>
+
+    <div class="hobby-card">
+      <div class="hobby-icon">👗</div>
+      <h3>Modeling &amp; Fashion Shows</h3>
+      <p>Walking the runway and being in front of the camera is literally my happy place 💖✨
+I love dressing up, trying different styles, and expressing myself through fashion.
+For me, fashion isn’t just about clothes, it’s about confidence, vibes, and showing who you are 🌸📸</p>
+      <p class="hobby-detail">走秀和站在镜头前，真的就是我最开心的时刻 💖✨
+我喜欢打扮自己，尝试不同的风格，用时尚来表达自己。
+对我来说，时尚不只是穿搭，更是一种自信、一种感觉，还有展现真实的自己 🌸📸</p>
+      <div class="hobby-tags"><span class="tag">Runway</span><span class="tag">Fashion</span><span class="tag">Modeling</span></div>
+    </div>
+
+    <div class="hobby-card">
+      <div class="hobby-icon">🎬</div>
+      <h3>Acting &amp; Film Projects</h3>
+      <p>I’m obsessed with storytelling and bringing emotions to life on screen 🎭💫
+Being part of film projects is always so exciting because every scene feels like a new adventure.
+Lights, camera, action… and suddenly you’re living a whole different life ✨🎥</p>
+      <p class="hobby-detail">我很喜欢通过表演讲故事，把情感真实地带到镜头前 🎭💫
+参与影视项目总是让我很兴奋，因为每一个场景都像一次新的冒险。
+灯光、镜头、开始……那一刻就像进入了另一个人生 ✨🎥</p>
+      <div class="hobby-tags"><span class="tag">Film</span><span class="tag">Acting</span><span class="tag">Storytelling</span></div>
+    </div>
+
+    <div class="hobby-card">
+      <div class="hobby-icon">🏆</div>
+      <h3>Participating in Competitions</h3>
+      <p>I honestly love joining competitions because they push me to level up 💪🌟
+It’s not just about winning, it’s about learning, meeting amazing people, and making unforgettable memories along the way.
+Every challenge helps me grow a little more ✨🤍</p>
+      <p class="hobby-detail">我真的很喜欢参加比赛，因为它们总能让我不断进步 💪🌟
+比赛不只是为了赢，更是为了学习、认识很棒的人，还有创造难忘的回忆。
+每一次挑战，都让我变得更好一点 ✨🤍</p>
+      <div class="hobby-tags"><span class="tag">Awards</span><span class="tag">Growth</span><span class="tag">Ambassador</span></div>
+    </div>
+
+  </div>
+
+  <div class="content-box" style="text-align:center;">
+    <span class="box-title">💖 a little quote for you 💖</span>
+    <blockquote class="motto">"Do what you love and love what you do — the rest will follow!" 🌸✨</blockquote>
+  </div>
+
+</div>
+</div><!-- /page-hobbies -->
+
+
+<!-- ================================================================
+     📸 PAGE: GALLERY
+     ================================================================ -->
+<div id="page-gallery" class="page-section">
+<div class="page-wrapper single-col">
+
+  <div class="page-title-box">
+    <h2>📸 My Gallery 💖</h2>
+    <p>A collection of my favorite moments &amp; memories! 🌸</p>
+  </div>
+
+  <!--
+    =====================================================
+    HOW TO ADD YOUR PHOTOS — QUICK GUIDE 🌸
+
+    Step 1: Put all your photo files in the SAME FOLDER as this HTML file.
+    Step 2: Find the gallery item you want to update below.
+    Step 3: Replace the <div class="gallery-placeholder"> block with:
+
+        <img src="YOUR-FILENAME.jpg" alt="caption" class="gallery-photo"/>
+
+    Example — BEFORE:
+        <div class="gallery-placeholder">📷<p>Add photo!</p></div>
+
+    Example — AFTER:
+        <img src="runway_show.jpg" alt="Runway Show" class="gallery-photo"/>
+
+    That's it! Repeat for each photo you want to add. 💕
+    =====================================================
+  -->
+
+  <!-- SECTION 1: Modeling & Fashion -->
+  <div class="gallery-section">
+    <span class="gallery-section-title">🌟 Modeling &amp; Fashion 👗</span>
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="modeling_01.jpg" alt="Runway Show" class="gallery-photo"/> -->
+        <img src="img1.jpg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Runway Show 💕</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="modeling_02.jpg" alt="Fashion Campaign" class="gallery-photo"/> -->
+        <img src="img2.webp" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Fashion Campaign 🌸</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="modeling_03.jpg" alt="Catalog Shoot" class="gallery-photo"/> -->
+        <img src="img4.jpg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Catalog Shoot 💖</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="modeling_04.jpg" alt="Brand Collab" class="gallery-photo"/> -->
+        <img src="img3.jpg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Brand Collab ✨</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: Performing Arts & Events -->
+  <div class="gallery-section">
+    <span class="gallery-section-title">🎭 Performing Arts &amp; Events 💃</span>
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="event_01.jpg" alt="Stage Performance" class="gallery-photo"/> -->
+               <img src="foto.jpg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Stage Performance 🎤</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="event_02.jpg" alt="Competition Day" class="gallery-photo"/> -->
+        <img src="img5.jpg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Competition Day 🏆</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="event_03.jpg" alt="Photo Model Project" class="gallery-photo"/> -->
+        <img src="art1.jpeg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Photo Model Project 🎬</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="event_04.jpg" alt="Award Ceremony" class="gallery-photo"/> -->
+        <img src="model.jpg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">Award Ceremony 🥇</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: Content Creating & Brand Collabs -->
+  <div class="gallery-section">
+    <span class="gallery-section-title">📱 Content Creating &amp; Brand Collabs 💅</span>
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="content_01.jpg" alt="TikTok Shoot" class="gallery-photo"/> -->
+         <video class="gallery-photo" controls autoplay muted loop>
+  <source src="dance.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">TikTok Shoot 🎵</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="content_02.jpg" alt="KOL Campaign" class="gallery-photo"/> -->
+          <video class="gallery-photo" controls autoplay muted loop>
+  <source src="Content.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">KOL Campaign 📸</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="content_03.jpg" alt="Emina Collab" class="gallery-photo"/> -->
+         <video class="gallery-photo" controls autoplay muted loop>
+  <source src="emina.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">Emina Collab 💄</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="content_04.jpg" alt="Skincare Review" class="gallery-photo"/> -->
+        <video class="gallery-photo" controls autoplay muted loop>
+  <source src="Toyota.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">Toyota Advertisement ✨</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: Campus Life -->
+  <div class="gallery-section">
+    <span class="gallery-section-title">🏫 Campus Life at Tzu Chi 🌸</span>
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="campus_01.jpg" alt="Campus Days" class="gallery-photo"/> -->
+ <video class="gallery-photo" controls autoplay muted loop>
+  <source src="diri.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">Campus Days 🎓</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="campus_02.jpg" alt="Ambassador Duty" class="gallery-photo"/> -->
+        <video class="gallery-photo" controls autoplay muted loop>
+  <source src="duta.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">Ambassador Duty 👑</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="campus_03.jpg" alt="Friends & Fun" class="gallery-photo"/> -->
+        <video class="gallery-photo" controls autoplay muted loop>
+  <source src="dance1.mp4" type="video/mp4">
+</video>
+        <p class="gallery-caption">Friends &amp; Fun 💕</p>
+      </div>
+
+      <div class="gallery-item">
+        <!-- REPLACE THIS with: <img src="campus_04.jpg" alt="New Memories" class="gallery-photo"/> -->
+        <img src="dmt1.jpeg" alt="caption" class="gallery-photo"/>
+        <p class="gallery-caption">New Memories 🌟</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================================================================
+       SECTION 5: Friends Photos — Horizontal Marquee
+       ================================================================
+
+       HOW TO ADD YOUR FRIENDS PHOTOS:
+       1. Put your photo files in the same folder as this HTML file.
+       2. Find the "friends-marquee-set" divs below (there are TWO identical sets
+          — this is what makes the loop seamless, so keep BOTH sets the same).
+       3. Inside each set, replace <div class="friends-photo-placeholder"> with:
+              <img src="YOUR-FILENAME.jpg" alt="caption" class="friends-photo"/>
+       4. Update the caption text inside <p class="friends-caption">.
+       5. Copy & paste more .friends-photo-item blocks if you have more photos.
+          Just make sure you add the SAME items to BOTH sets.
+  ================================================================ -->
+  <div class="gallery-section">
+    <span class="gallery-section-title">👯 Friends &amp; Memories 💞</span>
+    <p style="font-size:0.8rem; color:var(--pk4); margin-bottom:14px; font-family:'Nunito',sans-serif;">
+      Hover to pause &nbsp;·&nbsp; Scrolls automatically &nbsp;·&nbsp; All my favourite people 🌸
+    </p>
+
+    <!-- Outer div clips overflow; inner track animates left indefinitely -->
+    <div class="friends-marquee-outer">
+      <div class="friends-marquee-track">
+
+        <!-- ══ SET 1 — put your real photos here ══ -->
+        <div style="display:contents;">
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_01.jpg" alt="Squad Goals" class="friends-photo"/> -->
+            <img src="tmn1.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Squad Goals 💕</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_02.jpg" alt="BFF Moment" class="friends-photo"/> -->
+             <video class="gallery-photo" controls autoplay muted loop>
+  <source src="tmn2.mp4" type="video/mp4">
+            <p class="friends-caption">Rommies Moment 🌸</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_03.jpg" alt="Good Vibes" class="friends-photo"/> -->
+            <img src="tmn4.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Good Vibes ✨</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_04.jpg" alt="Memories" class="friends-photo"/> -->
+            <img src="tmn3.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">We ❤️ Memories</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_05.jpg" alt="Forever Friends" class="friends-photo"/> -->
+            <img src="tmn7.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Forever Friends 🎀</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_06.jpg" alt="Shining Together" class="friends-photo"/> -->
+            <img src="tmn8.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Shining Together 🌟</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_07.jpg" alt="Besties" class="friends-photo"/> -->
+             <video class="gallery-photo" controls autoplay muted loop>
+  <source src="tmn5.mp4" type="video/mp4">
+            <p class="friends-caption">Besties 🫶</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_08.jpg" alt="Fun Times" class="friends-photo"/> -->
+             <img src="tmn6.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Fun Times 💫</p>
+          </div>
+
+        </div><!-- /set 1 -->
+
+        <!-- ══ SET 2 — EXACT COPY of set 1 (enables seamless infinite loop).
+             When you edit Set 1, paste the same changes here too! ══ -->
+        <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_01.jpg" alt="Squad Goals" class="friends-photo"/> -->
+            <img src="roomate1.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Squad Goals 💕</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_02.jpg" alt="BFF Moment" class="friends-photo"/> -->
+             <video class="gallery-photo" controls autoplay muted loop>
+  <source src="tmn2.mp4" type="video/mp4">
+            <p class="friends-caption">Rommies Moment 🌸</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_03.jpg" alt="Good Vibes" class="friends-photo"/> -->
+            <img src="roomate.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">my roomies in taiwan ✨</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_04.jpg" alt="Memories" class="friends-photo"/> -->
+            <img src="tmn3.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">We ❤️ Memories</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_05.jpg" alt="Forever Friends" class="friends-photo"/> -->
+            <img src="tmn7.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Forever Friends 🎀</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_06.jpg" alt="Shining Together" class="friends-photo"/> -->
+            <img src="tmn8.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Shining Together 🌟</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_07.jpg" alt="Besties" class="friends-photo"/> -->
+             <video class="gallery-photo" controls autoplay muted loop>
+  <source src="tmn5.mp4" type="video/mp4">
+            <p class="friends-caption">Besties 🫶</p>
+          </div>
+
+          <div class="friends-photo-item">
+            <!-- Replace with: <img src="friend_08.jpg" alt="Fun Times" class="friends-photo"/> -->
+             <img src="tmn6.jpeg" alt="caption" class="friends-photo"/>
+            <p class="friends-caption">Fun Times 💫</p>
+          </div>
+
+        </div><!-- /set 2 -->
+
+      </div><!-- /friends-marquee-track -->
+    </div><!-- /friends-marquee-outer -->
+
+  </div><!-- /Friends gallery-section -->
+
+</div>
+</div><!-- /page-gallery -->
+
+
+<!-- ================================================================
+     🌟 PAGE: EXPERIENCES
+     ================================================================ -->
+<div id="page-experiences" class="page-section">
+<div class="page-wrapper single-col">
+
+  <div class="page-title-box">
+    <h2>🌟 My Experiences &amp; Achievements 💖</h2>
+    <p>A journey of growth, creativity, and making memories! ✨ Here's what I've done so far~ 🌸</p>
+  </div>
+
+  <div class="exp-grid">
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!--
+          To add your own photo here, replace the emoji line with:
+          <img src="exp_01.jpg" alt="Modeling Awards" class="exp-card-photo"/>
+        -->
+        🏆
+      </div>
+      <div class="exp-info">
+        <h3>🥇 Modeling Competition Awards</h3>
+        <span class="exp-badge">Achievement</span>
+        <p>Achieved multiple awards in various modeling competitions, proving my passion and dedication to the fashion and modeling world! 👗✨</p>
+        <p class="exp-lorem">在多個模特比賽中獲獎，展現我對這個領域的熱情與投入。✨</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_02.jpg" alt="Super Roti" class="exp-card-photo"/> -->
+        📸
+      </div>
+      <div class="exp-info">
+        <h3>📸 Photo Model – Super Roti</h3>
+        <span class="exp-badge">Campaign</span>
+        <p>Worked as a photo model for Super Roti's advertising campaigns, bringing products to life through photography and creative direction! 💕</p>
+        <p class="exp-lorem">曾擔任 Super Roti 廣告平面模特，以創意拍攝呈現產品魅力。💖</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_03.jpg" alt="Justice & Giordano" class="exp-card-photo"/> -->
+        🛍️
+      </div>
+      <div class="exp-info">
+        <h3>👗 Catalog Model – Justice &amp; Giordano</h3>
+        <span class="exp-badge">Modeling</span>
+        <p>Featured as a catalog model for renowned brands Justice and Giordano, showcasing the latest collections with style and confidence! 💖</p>
+        <p class="exp-lorem">擔任 Justice 和 Giordano 型錄模特，自信展示最新系列。💗</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_04.jpg" alt="Runway" class="exp-card-photo"/> -->
+        👠
+      </div>
+      <div class="exp-info">
+        <h3>👠 Runway Model – Multiple Brands</h3>
+        <span class="exp-badge">Runway</span>
+        <p>Walked as a runway model for brands like Justice Indonesia, Giordano, and Donita Kids—bringing confidence and energy to every show. ✨</p>
+        <p class="exp-lorem">曾為 Justice Indonesia、Giordano、Donita Kids 等品牌走秀，在每場表演中展現自信與活力。✨</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_05.jpg" alt="DKI Jakarta Ambassador" class="exp-card-photo"/> -->
+        👑
+      </div>
+      <div class="exp-info">
+        <h3>👑 Stage 1 Rep Ambassador – DKI Jakarta 2024</h3>
+        <span class="exp-badge">Ambassador</span>
+        <p>Selected as a Stage 1 Representative Ambassador for Senior High School, representing DKI Jakarta in 2024 an important milestone. 🏅💖</p>
+        <p class="exp-lorem">入選 2024 年雅加達高中第一階段學生代表大使，是一個重要的里程碑。🏅💗</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_06.jpg" alt="KOL" class="exp-card-photo"/> -->
+        💼
+      </div>
+      <div class="exp-info">
+        <h3>💼 Key Opinion Leader (KOL)</h3>
+        <span class="exp-badge">Influencer</span>
+        <p>Active KOL for several brands across fashion, skincare, and food industries, helping brands reach their audience authentically! 📱✨</p>
+        <p class="exp-lorem">活躍於時尚、美妝與食品品牌合作，以真實自然的方式與受眾建立連結。📱✨</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_07.jpg" alt="Emina TikTok" class="exp-card-photo"/> -->
+        🎵
+      </div>
+      <div class="exp-info">
+        <h3>🎵 TikTok Creator – Emina Trendjacking</h3>
+        <span class="exp-badge">Content Creator</span>
+        <p>Selected as a TikTok Content Creator for the Trendjacking Campaign with Emina! Creating viral content that connects with audiences! 💄📸</p>
+        <p class="exp-lorem">入選為 Emina 趨勢行銷活動的 TikTok 創作者，製作有趣且吸引人的內容，與觀眾產生共鳴。💄📸</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_08.jpg" alt="Fanbase" class="exp-card-photo"/> -->
+        💌
+      </div>
+      <div class="exp-info">
+        <h3>💌 Fanbase Manager</h3>
+        <span class="exp-badge">Community</span>
+        <p>Really grateful to have two amazing fanbase accounts that support me:<strong>@fans_alica</strong> and <strong>@alicayours_official</strong> 💖✨</p>
+        <p class="exp-lorem">我很感謝有兩個很棒的粉絲後援會一直支持我：@fans_alica 和 @alicayours_official 💖✨她們總是給我很多愛與鼓勵，讓我的每一步都變得更加特別 🌸🎀
+    </div>
+
+    <div class="exp-card highlight">
+      <div class="exp-photo-wrap">
+        <!-- <img src="exp_09.jpg" alt="Tzu Chi Ambassador" class="exp-card-photo"/> -->
+        🌸
+      </div>
+      <div class="exp-info">
+        <h3>🌸 Brand Ambassador – Tzu Chi University</h3>
+        <span class="exp-badge special">Brand Ambassador</span>
+        <p>Selected as Brand Ambassador for Tzu Chi University, representing the university with pride, positivity, and creativity! 🎓💖</p>
+        <p class="exp-lorem">入選為慈濟大學品牌大使，以正向、自信與創意展現學校形象。💖</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="content-box" style="text-align:center;">
+    <span class="box-title">💕 my motto 💕</span>
+    <blockquote class="motto">"Every experience shapes who you are — embrace each one with an open heart and a grateful spirit!" 🌸✨</blockquote>
+    <a href="https://tinyurl.com/alicajes" target="_blank" class="read-more-btn">🌐 View Full Portfolio</a>
+  </div>
+
+</div>
+</div><!-- /page-experiences -->
+
+
+<!-- ================================================================
+     BOTTOM MARQUEE — Pure CSS, replaces deprecated <marquee> tag.
+     Scrolls left continuously with no stutter. Two identical spans
+     inside .css-marquee-content create a seamless infinite loop.
+     ================================================================ -->
+<div class="css-marquee-bar">
+  <div class="css-marquee-content">
+    <!-- Span 1 — the visible content -->
+    <span>🌸&nbsp;alica.jes on instagram&nbsp;&nbsp;🎀&nbsp;&nbsp;yoi.alica on tiktok&nbsp;&nbsp;💖&nbsp;&nbsp;Brand Ambassador Tzu Chi&nbsp;&nbsp;📸&nbsp;&nbsp;Model · Creator · Performer&nbsp;&nbsp;✨&nbsp;&nbsp;</span>
+    <!-- Span 2 — exact copy, follows immediately so loop is seamless -->
+    <span aria-hidden="true">🌸&nbsp;alica.jes on instagram&nbsp;&nbsp;🎀&nbsp;&nbsp;yoi.alica on tiktok&nbsp;&nbsp;💖&nbsp;&nbsp;Brand Ambassador Tzu Chi&nbsp;&nbsp;📸&nbsp;&nbsp;Model · Creator · Performer&nbsp;&nbsp;✨&nbsp;&nbsp;</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>💕 © 2025 Alica Juliawati 洪美真 · All rights reserved 🌸</p>
+  <p>Made with love &amp; lots of pink 💖 <span class="sparkle">🌸</span></p>
+</footer>
+
+<!-- BOW BOTTOM -->
+<div class="bow-border bottom-border">
+  <span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span>
+  <span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span><span>🎀</span>
+</div>
+
+
+<!-- ================================================================
+     JAVASCRIPT
+     ================================================================ -->
+<script>
+  /* ---- TAB SWITCHING ---- */
+  function showPage(pageId, clickedBtn) {
+    document.querySelectorAll('.page-section').forEach(function(p) {
+      p.classList.remove('active');
+    });
+    document.getElementById('page-' + pageId).classList.add('active');
+
+    document.querySelectorAll('.nav-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    if (clickedBtn) clickedBtn.classList.add('active');
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ---- AUTOPLAY AUDIO ----
+     Browsers block autoplay until the user interacts.
+     This plays immediately if allowed, otherwise waits
+     for the first click anywhere on the page. */
+  var audio = document.getElementById('bg-music');
+  function tryPlay() {
+    if (!audio) return;
+    audio.play().catch(function() {
+      document.addEventListener('click', function startAudio() {
+        audio.play();
+        document.removeEventListener('click', startAudio);
+      }, { once: true });
+    });
+  }
+  window.addEventListener('load', tryPlay);
+
+
+  /* ================================================================
+     ✨ SPARKLE CURSOR — Fun interactive feature!
+     Spawns a tiny emoji (heart / star / ribbon) wherever the mouse
+     moves. Each sparkle floats upward and fades out via CSS animation.
+     Lightweight: never more than ~12 sparkles alive at once.
+     ================================================================ */
+
+  // Pool of cute emojis to pick from randomly
+  var SPARKLE_EMOJIS = ['💖', '🌸', '✨', '💕', '⭐', '🎀', '💫', '🌟', '💗', '🩷'];
+
+  // Throttle: only spawn a sparkle every N milliseconds
+  var SPARKLE_INTERVAL_MS = 80;
+  var lastSparkleTime = 0;
+
+  document.addEventListener('mousemove', function(e) {
+    var now = Date.now();
+    // Throttle so we don't spam the DOM on fast mouse moves
+    if (now - lastSparkleTime < SPARKLE_INTERVAL_MS) return;
+    lastSparkleTime = now;
+
+    // Pick a random emoji from the pool
+    var emoji = SPARKLE_EMOJIS[Math.floor(Math.random() * SPARKLE_EMOJIS.length)];
+
+    // Create the sparkle element
+    var el = document.createElement('span');
+    el.className = 'cursor-sparkle';
+    el.textContent = emoji;
+
+    // Position it at the cursor, offset slightly so it feels centered
+    el.style.left = e.clientX + 'px';
+    el.style.top  = e.clientY + 'px';
+
+    // Vary size slightly for visual interest
+    var size = 0.7 + Math.random() * 0.7; // 0.7rem – 1.4rem
+    el.style.fontSize = size + 'rem';
+
+    document.body.appendChild(el);
+
+    // Remove from DOM after animation ends (~0.8s) to keep the page clean
+    setTimeout(function() {
+      if (el.parentNode) el.parentNode.removeChild(el);
+    }, 850);
+  });
+</script>
+
+</body>
+</html>
